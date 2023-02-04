@@ -8,29 +8,27 @@ import static java.util.stream.Collectors.toList;
 
 public class ImperativeVsDeclarativeExample2 {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-        List<Integer> integerList =Arrays.asList(1,2,3,4,4,5,5,6,7,7,8,9,9);
+		List<Integer> integerList = Arrays.asList(1, 2, 3, 4, 4, 5, 5, 6, 7, 7, 8, 9, 9);
 
-        //Remove the duplicates from the list.
+		// Remove the duplicates from the list.
 
-        /**
-         * Imperative Style
-         */
-        List<Integer> uniqueList = new ArrayList<>();
-        for(Integer i :integerList)
-            if(!uniqueList.contains(i)){
-            uniqueList.add(i);
-            }
-        System.out.println("unique List : " + uniqueList);
+		/**
+		 * Imperative Style
+		 */
+		List<Integer> uniqueList = new ArrayList<>();
+		for (Integer i : integerList)
+			if (!uniqueList.contains(i)) {
+				uniqueList.add(i);
+			}
+		System.out.println("Imperative Style-> unique List : " + uniqueList);
 
-        /**
-         * Declarative Syle
-         */
+		/**
+		 * Declarative Style
+		 */
 
-        List<Integer> uniqueList1 = integerList.stream()
-                .distinct()
-                .collect(toList());
-        System.out.println("uniqueList1 : " + uniqueList1);
-    }
+		List<Integer> uniqueList1 = integerList.stream().distinct().collect(toList());
+		System.out.println("Declarative Style-> uniqueList1 : " + uniqueList1);
+	}
 }
