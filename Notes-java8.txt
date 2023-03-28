@@ -1,0 +1,6 @@
+
+
+There are 3 ways to create optional objects :-
+1. of
+2. ofNullable
+3. empty

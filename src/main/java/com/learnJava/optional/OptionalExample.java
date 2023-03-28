@@ -2,6 +2,8 @@ package com.learnJava.optional;
 
 import com.learnJava.data.Student;
 import com.learnJava.data.StudentDataBase;
+
+import java.util.List;
 import java.util.Optional;
 
 public class OptionalExample {
@@ -28,11 +30,30 @@ public class OptionalExample {
 		}
 		return Optional.empty();
 	}
+	
+	public static Optional<List<String>> getStudentActivitiesOptional() {
+
+		Optional<Student> student = Optional.ofNullable(StudentDataBase.studentSupplier.get());
+		// Optional<Student> student = Optional.ofNullable(null);
+
+		if (student.isPresent()) {
+			return student.map(Student::getActivities); // don't get confused this with streams map method. Both are
+													// different.
+		}
+		return Optional.empty();
+	}
+	
 
 	public static void main(String[] args) {
 
 		if (getStudentNameOptional().isPresent()) {
-			System.out.println(getStudentNameOptional().get());
+			System.out.println(getStudentNameOptional().get()); //Adam
+		} else {
+			System.out.println("Name is returned as empty.");
+		}
+		
+		if (getStudentActivitiesOptional().isPresent()) {
+			System.out.println(getStudentActivitiesOptional().get()); //[swimming, basketball, volleyball]
 		} else {
 			System.out.println("Name is returned as empty.");
 		}

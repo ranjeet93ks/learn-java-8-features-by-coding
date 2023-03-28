@@ -133,7 +133,58 @@ ex.
       • ToLongFunction<T> :- It represents a function that returns a result of long type.
       • UnaryOperator<T> :- It represents an operation on a single operand that returnsa a result of the same type as its operand.
 
->>  
+>>Method Reference
+     • Introduced as part of Java 8 and its purpose is to simplify the implementation Functional Interfaces.
+     • Shortcut for writing the Lambda Expressions.
+     • Refer a method in a class.  
+>>Constructor Reference
+     • Introduced as part of Java 1.8
+       Syntax: Classname::new
+	   Example:
+          Supplier<Student> studentSupplier = Student::new;
+          Invalid:
+          Student student = Student::new; // compilation issue
+		  
+
+Lambdas have some restrictions on using local variables:
+• Not allowed to use the same the local variable name as
+lambda parameters or inside the lambda body.
+• Not allowed re-assign a value to a local variable.
+
+
+Effectively Final
+• Lambda’s are allowed to use local variables but not allowed to
+modify it even though they are not declared final. This concept is
+called Effectively Final.
+• Not allowed to modify the value inside the lamda
+int value =4;
+Consumer<Integer> c1 = (a) -> {
+//value=6; //reassigning not allowed
+// System.out.println(i+value);
+};
+• Prior to Java 8 , any variable that’s used inside the anonymous
+class should be declared final.
+
+---------------------------
+------------------------------
+Introduction to Streams API:
+• Introduced as part of Java8
+• Main purpose is to perform some Operation on Collections.
+• Parallel operations are easy to perform with Streams API without having to spawn a multiple threads.
+• Streams API can be also used with arrays or any kind of I/O .
+
+List<String> names = Arrays.asList("adam","dan","jenny");
+Stream is a sequence of elements which can be created out of
+a collections such as List or Arrays or any kind of I/O resources and etc.,
+names.stream(); // creates a stream
+
+Stream operations can be performed either sequentially or parallel.
+names.parallelStream(); // creates a parallel stream
+
+
+
+
+
 
  
 
