@@ -25,12 +25,12 @@ public class OptionalDemo {
 		Optional<Object> emptyOptional = Optional.empty();
 		System.out.println(emptyOptional);
 
-		Optional<String> emailOptional = Optional.of(customer.getEmail());
+		Optional<Object> emailOptional = Optional.of(customer.getEmail());
 		System.out.println(emailOptional);
 		
 		
 
-		Optional<String> emailOptional2 = Optional.ofNullable(customer.getEmail());
+		Optional<Object> emailOptional2 = Optional.ofNullable(customer.getEmail());
 		/*
 		 * if(emailOptional2.isPresent()){ System.out.println(emailOptional2.get()); }
 		 */
@@ -39,7 +39,7 @@ public class OptionalDemo {
 		// System.out.println(emailOptional2.orElseThrow(()->new
 		// IllegalArgumentException("email not present")));
 
-		System.out.println(emailOptional2.map(String::toUpperCase).orElseGet(() -> "default email..."));
+		//System.out.println(emailOptional2.map(String::toUpperCase).orElseGet(() -> "default email..."));
 
 		getCustomerByEmailId("pqr");
 	}

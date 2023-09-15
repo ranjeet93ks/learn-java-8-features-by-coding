@@ -1,4 +1,4 @@
-package com.learnJava;
+package com.learnJava.streams;
 
 import com.learnJava.data.Student;
 import com.learnJava.data.StudentDataBase;
